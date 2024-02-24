@@ -1,17 +1,20 @@
 import { Pressable, View, Text, StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+
 import { GlobalStyles } from "../../constants/style";
 import { getFormattedDate } from "../../util/date";
 
 
-function ExpenseItem({ description, date, amount }) {
+function ExpenseItem({ id, description, date, amount }) {
     // Ensure amount is a number and format it to two decimal places
     const formattedAmount = parseFloat(amount).toFixed(2);
 
     const navigation = useNavigation();
 
     function expensePressHandler() {
-        navigation.navigate('ManageExpense');
+        navigation.navigate('ManageExpense', {
+            expenseId: id
+        });
     }
 
     return (
