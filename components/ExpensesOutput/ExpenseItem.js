@@ -5,7 +5,7 @@ import { GlobalStyles } from "../../constants/style";
 import { getFormattedDate } from "../../util/date";
 
 
-function ExpenseItem({ id, description, date, amount }) {
+function ExpenseItem({ id, amount, date, description }) {
     // Ensure amount is a number and format it to two decimal places
     const formattedAmount = parseFloat(amount).toFixed(2);
 
@@ -29,7 +29,6 @@ function ExpenseItem({ id, description, date, amount }) {
                     <Text style={styles.amount}>{formattedAmount}€</Text>
                 </View>
             </View>
-
         </Pressable>
     );
 }
