@@ -1,12 +1,17 @@
 import { View, Text, StyleSheet } from "react-native";
-import { GlobalStyles, GloblStyles } from '../../constants/style';
+
+import { GlobalStyles } from '../../constants/style';
 
 function ExpensesSummary({ expenses, periodName }) {    
     // Ensure each expense.amount is a number; otherwise, consider it as 0
-    const expensesSum = expenses.reduce((sum, expense) => {
+    /*const expensesSum = expenses.reduce((sum, expense) => {
         const amount = parseFloat(expense.amount); // Convert to float to ensure it's a number
         return sum + (isNaN(amount) ? 0 : amount); // Only add if amount is a number
-    }, 0);
+    }, 0);*/
+
+    const expensesSum = expenses.reduce((sum, expense) => {
+        return sum + expense.amount;
+    }, 0)
 
     return (
         <View style={styles.container}>

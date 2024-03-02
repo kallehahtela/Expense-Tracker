@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACKEND_URL = 'https://expense-tracker-1a3cd-default-rtdb.europe-west1.firebasedatabase.app/expenses.json';
+const BACKEND_URL = 'https://expense-tracker-1a3cd-default-rtdb.europe-west1.firebasedatabase.app';
 
 export async function storeExpense(expenseData) {
    const response = await axios.post(BACKEND_URL + '/expenses.json', expenseData);
@@ -12,9 +12,6 @@ export async function fetchExpenses() {
     const response = await axios.get(BACKEND_URL + '/expenses.json');
 
     const expenses = [];
-
-    // logging before database reads it
-    console.log(response.data);
 
     for (const key in response.data) {
         const expenseObj = {

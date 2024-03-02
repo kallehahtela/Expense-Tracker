@@ -1,10 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 
+import { GlobalStyles } from "../../constants/style";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
-import { GlobalStyles } from "../../constants/style";
-
-
 
 function ExpensesOutput({ expenses, periodName, fallbackText }) {
     let content = <Text style={styles.infoText}>{fallbackText}</Text>;
@@ -15,7 +13,7 @@ function ExpensesOutput({ expenses, periodName, fallbackText }) {
 
     return (
         <View style={styles.container}>
-            <ExpensesSummary expenses={expenses} periodName={periodName}/>
+            <ExpensesSummary expenses={expenses} periodName={periodName} />
             {content}
         </View>
     );

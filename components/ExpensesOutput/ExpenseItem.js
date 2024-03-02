@@ -5,10 +5,9 @@ import { GlobalStyles } from "../../constants/style";
 import { getFormattedDate } from "../../util/date";
 
 
-function ExpenseItem({ id, amount, date, description }) {
+function ExpenseItem({ id, description, amount, date }) {
     // Ensure amount is a number and format it to two decimal places
-    const formattedAmount = parseFloat(amount).toFixed(2);
-
+    //const formattedAmount = parseFloat(amount).toFixed(2);
     const navigation = useNavigation();
 
     function expensePressHandler() {
@@ -26,7 +25,7 @@ function ExpenseItem({ id, amount, date, description }) {
                 </View>
 
                 <View style={styles.amountContainer}>
-                    <Text style={styles.amount}>{formattedAmount}€</Text>
+                    <Text style={styles.amount}>{amount.toFixed(2)}€</Text>
                 </View>
             </View>
         </Pressable>

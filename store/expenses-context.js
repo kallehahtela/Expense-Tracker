@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 
-
 export const ExpensesContext = createContext({
     expenses: [],
     addExpense: ({ description, amount, date }) => {},
@@ -34,7 +33,7 @@ function expensesReducer(state, action) {
 function ExpensesContextProvider({ children }) {
     const [expensesState, dispatch] = useReducer(expensesReducer, []);
 
-    function addExpense({expenseData}) {
+    function addExpense(expenseData) {
         dispatch({ type: 'ADD', payload: expenseData });
     }
 
@@ -55,7 +54,7 @@ function ExpensesContextProvider({ children }) {
         setExpenses: setExpenses,
         addExpense: addExpense,
         deleteExpense: deleteExpense,
-        updateExpense: updateExpense
+        updateExpense: updateExpense,
     };
 
     return (
