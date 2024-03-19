@@ -6,36 +6,39 @@ import { getFormattedDate } from "../../util/date";
 
 
 function ExpenseItem({ id, description, amount, date }) {
-    // Ensure amount is a number and format it to two decimal places
-    //const formattedAmount = parseFloat(amount).toFixed(2);
     const navigation = useNavigation();
-
+  
     function expensePressHandler() {
-        navigation.navigate('ManageExpense', {
-            expenseId: id
-        });
+      navigation.navigate('ManageExpense', {
+        expenseId: id
+      });
     }
-
+  
     return (
-        <Pressable onPress={expensePressHandler} style={({pressed}) => pressed && styles.pressed}>
-            <View style={styles.ExpenseItem}>
-                <View>
-                    <Text style={[styles.textBase, styles.description]}>{description}</Text>
-                    <Text style={styles.textBase}>{getFormattedDate(date)}</Text>
-                </View>
-
-                <View style={styles.amountContainer}>
-                    <Text style={styles.amount}>{amount.toFixed(2)}€</Text>
-                </View>
-            </View>
-        </Pressable>
+      <Pressable
+        onPress={expensePressHandler}
+        style={({ pressed }) => pressed && styles.pressed}
+      >
+        <View style={styles.expenseItem}>
+          <View>
+            <Text style={[styles.textBase, styles.description]}>
+              {description}
+            </Text>
+            <Text style={styles.textBase}>{getFormattedDate(date)}</Text>
+          </View>
+          <View style={styles.amountContainer}>
+            <Text style={styles.amount}>{amount.toFixed(2)}</Text>
+          </View>
+        </View>
+      </Pressable>
     );
-}
+  }
+  
 
 export default ExpenseItem;
 
 const styles = StyleSheet.create({
-    ExpenseItem: {
+    expenseItem: {
         padding: 12,
         marginVertical: 8,
         backgroundColor: GlobalStyles.color.primaryAction,

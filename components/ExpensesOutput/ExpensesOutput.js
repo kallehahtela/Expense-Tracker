@@ -4,21 +4,21 @@ import { GlobalStyles } from "../../constants/style";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
 
-function ExpensesOutput({ expenses, periodName, fallbackText }) {
+function ExpensesOutput({ expenses, expensesPeriod, fallbackText }) {
     let content = <Text style={styles.infoText}>{fallbackText}</Text>;
-
-    if (expenses.length > 0) { 
-        content = <ExpensesList expenses={expenses} />;
+  
+    if (expenses.length > 0) {
+      content = <ExpensesList expenses={expenses} />;
     }
-
+  
     return (
-        <View style={styles.container}>
-            <ExpensesSummary expenses={expenses} periodName={periodName} />
-            {content}
-        </View>
+      <View style={styles.container}>
+        <ExpensesSummary expenses={expenses} periodName={expensesPeriod} />
+        {content}
+      </View>
     );
-}
-
+  }
+    
 export default ExpensesOutput
 
 const styles = StyleSheet.create({
@@ -35,5 +35,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         marginTop: 32
-    }
+    },
 });
